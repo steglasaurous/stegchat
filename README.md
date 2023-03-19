@@ -31,3 +31,8 @@ To serve the app from the default http://localhost:4200 :
 npx ng serve
 ```
 
+# TODO
+
+- [ ] Add parameter `websocket_host` to configure where to connect to streamer.bot's websocket server, remove hard-coded value. 
+- [ ] BUG: Message boxes change shape to fit in their container - should maintain their original shape and push other messages off-screen.
+- [ ] BUG: Messages that contain URLs or other text without spaces go past their box boundaries and trample the next chat message box.
