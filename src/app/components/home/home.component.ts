@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ChatMessageModel, EmoteModel} from "../../chat-message.model";
 import {WebsocketService} from "../../services/websocket.service";
+import {TwitchChatService} from "../../services/twitch-chat.service";
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent {
 
   private websocketService: WebsocketService;
 
-  constructor() {
+  constructor(private twitchChatService: TwitchChatService) {
     this.messages = [];
 
     this.websocketService = new WebsocketService(
