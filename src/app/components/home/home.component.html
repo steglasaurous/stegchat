@@ -1,5 +1,7 @@
-<div class="chat-messages">
-  <ng-container *ngFor="let chatMessage of messages">
-    <app-chat-message [chatMessage]="chatMessage"></app-chat-message>
-  </ng-container>
+<div class="theme-{{theme}}">
+  <div class="chat-messages">
+    <ng-container *ngFor="let chatMessage of messages">
+      <app-chat-message [chatMessage]="chatMessage" [channelNumber]="getChannelNumber(chatMessage)" [theme]="theme"></app-chat-message>
+    </ng-container>
+  </div>
 </div>

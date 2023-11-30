@@ -10,17 +10,24 @@ If others find this useful, I may extend its abilities, customization, etc., but
 
 ## Requirements
 
-- Streamer.bot with websocket server started - Used as the connecting mechanism to read chat messages from.  Tested with v0.1.19.
-- If building the app yourself, you'll need node.js v16.x or better.  
+- If building the app yourself, you'll need node.js v16.x or better.
 
 ## Usage
 
 ### Quickstart
+
 TBD: Using a hosted URL - not yet provisioned.
+
+Pass in the channels you want the overlay to show messages for with a comma-delimited channels query string parameter.  Ex:
+
+`http://localhost:4200?channels=steglasaurous,steg_bot`
+
+In most cases, you probably only want your own channel, however it can be useful in multistreams to show multiple channels' chat messages in one overlay.  
 
 ### Advanced (or building it yourself)
 
 Start with installing dependencies:
+
 ```
 npm install
 ```
@@ -33,6 +40,6 @@ npx ng serve
 
 # TODO
 
-- [ ] Add parameter `websocket_host` to configure where to connect to streamer.bot's websocket server, remove hard-coded value. 
-- [ ] BUG: Message boxes change shape to fit in their container - should maintain their original shape and push other messages off-screen.
-- [ ] BUG: Messages that contain URLs or other text without spaces go past their box boundaries and trample the next chat message box.
+- [ ]  Add parameter `websocket_host` to configure where to connect to streamer.bot's websocket server, remove hard-coded value.
+- [ ]  BUG: Message boxes change shape to fit in their container - should maintain their original shape and push other messages off-screen.
+- [ ]  BUG: Messages that contain URLs or other text without spaces go past their box boundaries and trample the next chat message box.

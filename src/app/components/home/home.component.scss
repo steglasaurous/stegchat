@@ -1,5 +1,15 @@
-.chat-messages {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
+.theme-sideways {
+  .chat-messages {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
+}
+
+.theme-vertical {
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }

@@ -7,6 +7,7 @@ import { ChatMessageComponent } from './components/chat-message/chat-message.com
 import { HomeComponent } from './components/home/home.component';
 import { MessageHtmlPipe } from './pipes/message-html.pipe';
 import {TwitchChatService} from "./services/twitch-chat.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {TwitchChatService} from "./services/twitch-chat.service";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [TwitchChatService],
   bootstrap: [AppComponent]
