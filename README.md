@@ -1,26 +1,40 @@
 # StegChat: A Twitch chat overlay
 
-Other overlays didn't _quite_ do what I wanted, so I made one. :)  This chat overlay shows messages horizontally on the screen.  Supports the usual twitch emotes.
+Other overlays didn't _quite_ do what I wanted, so I made one. :)  
+
+This is a chat overlay that:
+
+- supports the usual twitch emotes and
+- shows messages from one or more twitch channels
+
+There's only one theme at the moment - showing messages in a horizontal fashion.  More layouts and themes to come.
 
 ![image](docs/images/example.png)
-
-If others find this useful, I may extend its abilities, customization, etc., but also welcome contributors!
-
-**NOTE: This is super-duper alpha. I will be cleaning up the code over the coming weeks for more general consumption.**
-
-## Requirements
-
-- Streamer.bot with websocket server started - Used as the connecting mechanism to read chat messages from.  Tested with v0.1.19.
-- If building the app yourself, you'll need node.js v16.x or better.  
 
 ## Usage
 
 ### Quickstart
-TBD: Using a hosted URL - not yet provisioned.
+
+Add this URL as a browser source in OBS, passing in the twitch channels to join in the `channels` query parameter as a comma-delimited list. 
+
+Format: `https://steglasaurous.github.io/stegchat?channels=TWITCH_NAME_HERE`
+
+Examples:
+
+Show chat for a single channel:
+
+`https://steglasaurous.github.io/stegchat?channels=my_twitch_username`
+
+Show chat for 2 channels:
+
+`https://steglasaurous.github.io/stegchat?channels=my_twitch_username,another_twitch_username`
 
 ### Advanced (or building it yourself)
 
+> Note this requires Node 16.x or better.
+
 Start with installing dependencies:
+
 ```
 npm install
 ```
@@ -31,8 +45,3 @@ To serve the app from the default http://localhost:4200 :
 npx ng serve
 ```
 
-# TODO
-
-- [ ] Add parameter `websocket_host` to configure where to connect to streamer.bot's websocket server, remove hard-coded value. 
-- [ ] BUG: Message boxes change shape to fit in their container - should maintain their original shape and push other messages off-screen.
-- [ ] BUG: Messages that contain URLs or other text without spaces go past their box boundaries and trample the next chat message box.

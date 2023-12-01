@@ -1,4 +1,7 @@
-<div class="chat-message-container">
-  <div class="username" style="color: {{ chatMessage.color }}">{{ chatMessage.username }}</div>
-  <div class="message" [innerHTML]="chatMessage | messageHtml"></div>
+<div class="theme-{{ theme }}">
+  <div class="chat-message-container channel{{ channelNumber }}">
+    <div class="username" style="color: {{ chatMessage.color }}">{{ chatMessage.username }}</div>
+    <div class="message" [innerHTML]="chatMessage.renderedMessage"></div>
+    <div class="channel">#{{ chatMessage.channel }}</div>
+  </div>
 </div>

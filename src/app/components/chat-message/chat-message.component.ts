@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ChatMessageModel} from "../../chat-message.model";
+import {ChatMessage} from "../../models/chat-message";
 
 @Component({
   selector: 'app-chat-message',
@@ -8,6 +8,19 @@ import {ChatMessageModel} from "../../chat-message.model";
 })
 export class ChatMessageComponent {
   @Input()
-  public chatMessage!: ChatMessageModel;
+  public chatMessage!: ChatMessage;
+  @Input()
+  public channelNumber!: number;
+  @Input()
+  public theme: string = Theme.Sideways;
 
+}
+
+export enum Theme {
+  Sideways = 'sideways',
+  Vertical = 'vertical'
+}
+
+export function isTheme(value: string): value is Theme {
+  return value in Theme;
 }
