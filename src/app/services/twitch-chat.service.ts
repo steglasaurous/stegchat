@@ -17,15 +17,6 @@ export class TwitchChatService {
     throw e;
   }));
 
-  constructor() {
-    // FIXME: Next steps:
-    //        - spec out a proper service for this
-    //        - channels configurable through querystring
-    //        - spec out an architecture for being able to change out different chat display methods
-    //        - Create a "pretty" display method - include what channel it came from for multiple channels
-    //        - "Step 3: PROFIT"
-  }
-
   connect(channels: string[]) {
     this.chatClient = new ChatClient({ channels: channels});
     this.chatClient.connect();
