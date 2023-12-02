@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-const distDir = process.argv[1];
+const distDir = process.argv[2];
 if (!fs.existsSync(distDir)) {
   console.warn('distDir does not exist.  Pass the directory to act on as the first argument. Ex: node postbuild.mjs dist/universal-song-overlay');
   process.exit(-1);

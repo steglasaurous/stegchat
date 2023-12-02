@@ -39,7 +39,7 @@ Start with installing dependencies:
 npm install
 ```
 
-To serve the app from the default http://localhost:4200 :
+To serve the app from the default http://localhost:4200/stegchat :
 
 ```
 npx ng serve
