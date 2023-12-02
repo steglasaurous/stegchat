@@ -13,7 +13,8 @@ export class ChatMessageComponent {
   public channelNumber!: number;
   @Input()
   public theme: string = Theme.Sideways;
-
+  @Input()
+  public showChannelName = false;
 }
 
 export enum Theme {

@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import {TwitchChatService} from "../../services/twitch-chat.service";
-import {ActivatedRoute} from "@angular/router";
-import {ChatMessage} from "../../models/chat-message";
-import {isTheme, Theme} from "../chat-message/chat-message.component";
+import { Component, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ChatMessage } from '../../models/chat-message';
+import { isTheme } from '../chat-message/chat-message.component';
+import { CHAT_READER } from '../../utils/di-tokens';
+import { ChatReader } from '../../services/chat-reader.interface';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   /**
@@ -27,7 +28,10 @@ export class HomeComponent {
   private readonly maxMessages: number = 5;
   private channels: string[] = [];
 
-  constructor(private twitchChatService: TwitchChatService, private route: ActivatedRoute) {
+  constructor(
+    @Inject(CHAT_READER) private chatReader: ChatReader,
+    private route: ActivatedRoute,
+  ) {
     this.messages = [];
     // Pull out the list of channels to join from the query string "channels"
     this.route.queryParamMap.subscribe((paramMap) => {
@@ -35,9 +39,8 @@ export class HomeComponent {
       if (channels != null) {
         this.channels = channels.split(',');
 
-        this.twitchChatService.connect(channels.split(','));
-        this.twitchChatService.messages$.subscribe((chatMessage) => {
-
+        this.chatReader.connect(channels.split(','));
+        this.chatReader.messages$.subscribe((chatMessage) => {
           if (this.messages.length > this.maxMessages) {
             this.messages.pop();
           }
@@ -45,15 +48,14 @@ export class HomeComponent {
           this.messages.unshift(chatMessage);
         });
       } else {
-        console.log('No channels found in query string.  Specify a comma-delimited list of channel names to join');
+        console.log(
+          'No channels found in query string.  Specify a comma-delimited list of channel names to join',
+        );
       }
 
       if (paramMap.has('theme')) {
-
         const themeFromQuery = paramMap.get('theme');
-        console.log(themeFromQuery);
         if (themeFromQuery != null && isTheme(themeFromQuery)) {
-          console.log('setting theme');
           this.theme = themeFromQuery;
         }
       }
@@ -72,7 +74,7 @@ export class HomeComponent {
   }
 
   getChannelNumber(chatMessage: ChatMessage) {
-    for (let i=0;i<this.channels.length;i++) {
+    for (let i = 0; i < this.channels.length; i++) {
       if (this.channels[i] == chatMessage.channel) {
         return i;
       }
