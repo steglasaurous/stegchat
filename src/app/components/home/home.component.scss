@@ -10,7 +10,9 @@
 .theme-vertical {
   .chat-messages {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 10px;
+    overflow: hidden;
+    height: 100vh;
   }
 }

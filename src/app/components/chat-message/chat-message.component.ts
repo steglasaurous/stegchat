@@ -22,6 +22,10 @@ export enum Theme {
   Vertical = 'vertical'
 }
 
-export function isTheme(value: string): value is Theme {
-  return value in Theme;
+export function isTheme(value: string): boolean {
+  const result = Object.values(Theme).filter((themeValue) => {
+    return value == themeValue;
+  });
+
+  return result.length > 0;
 }

@@ -9,6 +9,7 @@ import { MessageHtmlPipe } from './pipes/message-html.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FakeMessageGeneratorService } from './services/fake-message-generator.service';
 import { CHAT_READER } from './utils/di-tokens';
+import {TwitchChatService} from "./services/twitch-chat.service";
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { CHAT_READER } from './utils/di-tokens';
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [
-    // {
-    //   provide: CHAT_READER,
-    //   useClass: TwitchChatService,
-    // },
     {
       provide: CHAT_READER,
-      useClass: FakeMessageGeneratorService,
+      useClass: TwitchChatService,
     },
+    // Use the provider below for testing - it will generate fake messages.
+    // {
+    //   provide: CHAT_READER,
+    //   useClass: FakeMessageGeneratorService,
+    // },
   ],
   bootstrap: [AppComponent],
 })
