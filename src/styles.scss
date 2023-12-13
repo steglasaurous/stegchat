@@ -1,11 +1,11 @@
 @import 'animate.css';
-
-body {
-  //font-family: 'Roboto Condensed', sans-serif;
-  //background-color: black;
-  //color: white;
-  //font-size: 24px;
-}
-
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+}
+

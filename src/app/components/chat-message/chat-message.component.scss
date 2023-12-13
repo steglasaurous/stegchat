@@ -28,3 +28,37 @@
     background-color: darkslategray;
   }
 }
+
+.theme-vertical {
+  .chat-message-container {
+    animation: slideInUp;
+    animation-duration: 0.5s;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    border-radius: 10px;
+
+    .username {
+      width: fit-content;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black;
+    }
+    .message {
+      width: fit-content;
+      text-shadow: 2px 2px 4px black;
+    }
+    .channel {
+      font-size: 12px;
+    }
+    //width: fit-content;
+  }
+
+  .chat-message-container.channel0 {
+    //background-color: black;
+  }
+
+  .chat-message-container.channel1 {
+    background-color: darkslategray;
+  }
+}

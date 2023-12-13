@@ -13,7 +13,8 @@ export class ChatMessageComponent {
   public channelNumber!: number;
   @Input()
   public theme: string = Theme.Sideways;
-
+  @Input()
+  public showChannelName = false;
 }
 
 export enum Theme {
@@ -21,6 +22,10 @@ export enum Theme {
   Vertical = 'vertical'
 }
 
-export function isTheme(value: string): value is Theme {
-  return value in Theme;
+export function isTheme(value: string): boolean {
+  const result = Object.values(Theme).filter((themeValue) => {
+    return value == themeValue;
+  });
+
+  return result.length > 0;
 }

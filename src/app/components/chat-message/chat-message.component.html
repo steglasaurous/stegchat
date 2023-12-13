@@ -2,6 +2,6 @@
   <div class="chat-message-container channel{{ channelNumber }}">
     <div class="username" style="color: {{ chatMessage.color }}">{{ chatMessage.username }}</div>
     <div class="message" [innerHTML]="chatMessage.renderedMessage"></div>
-    <div class="channel">#{{ chatMessage.channel }}</div>
+    <div class="channel" *ngIf="showChannelName">#{{ chatMessage.channel }}</div>
   </div>
 </div>
