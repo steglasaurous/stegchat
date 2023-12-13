@@ -42,7 +42,7 @@ All parameters are set via the querystring (after the question mark in the URL).
 
 `theme` - Set the theme to use.  Available themes are `sideways` (default) and `vertical`.
 
-`message_ttl` - Set how long messages stay on-screen before disappearing, in seconds.  Setting to 0 means messages stay indefinitely.
+`message_ttl` - Set how long messages stay on-screen before disappearing, in milliseconds.  Setting to 0 means messages stay indefinitely.
 
 
 ### Advanced (or building it yourself)
