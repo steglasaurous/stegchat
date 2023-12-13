@@ -6,8 +6,9 @@ This is a chat overlay that:
 
 - supports the usual twitch emotes and
 - shows messages from one or more twitch channels
+- themes
 
-There's only one theme at the moment - showing messages in a horizontal fashion.  More layouts and themes to come.
+Currently there are two themes: sideways (default) and vertical.  
 
 ![image](docs/images/example.png)
 
@@ -28,6 +29,21 @@ Show chat for a single channel:
 Show chat for 2 channels:
 
 `https://steglasaurous.github.io/stegchat?channels=my_twitch_username,another_twitch_username`
+
+Use the vertical theme:
+
+`https://steglasaurous.github.io/stegchat?channels=my_twitch_username&theme=vertical`
+
+### Config Parameters
+
+All parameters are set via the querystring (after the question mark in the URL). See examples above.
+
+`channels` - Required.  A comma-delimited list of one or more twitch channels to show messages for.
+
+`theme` - Set the theme to use.  Available themes are `sideways` (default) and `vertical`.
+
+`message_ttl` - Set how long messages stay on-screen before disappearing, in seconds.  Setting to 0 means messages stay indefinitely.
+
 
 ### Advanced (or building it yourself)
 
