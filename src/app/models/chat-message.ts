@@ -5,5 +5,6 @@ export interface ChatMessage {
   renderedMessage: string;
   timestamp: number;
   msgId: string;
-  color: string|undefined;
+  color: string | undefined;
+  isAction?: boolean;
 }
